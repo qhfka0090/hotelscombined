@@ -1,0 +1,16 @@
+@charset "utf-8";
+body, header, footer, section, article, nav, aside, div, p, h1, h2, h3, h4, h5, h6,
+ul, ol, li, dl, dt, dd, p, blockquote, form, fieldset, legend, input, select, textarea, button, address,
+form, fieldset, input, select, button, textarea, option, blockquote,
+table, caption, thead, tbody, tfoot, th, td,figure,figcaption{ margin:0px; padding:0px; box-sizing:border-box; }
+ul,ol{ list-style:none; }
+a, ins, del{ text-decoration:none; }
+h1, h2, h3, h4, h5, h6{ font-size:100%; font-weight:normal; }
+strong,b{ font-weight:normal; }
+address, em, i{ font-style:normal; }
+img{ display:block; }
+q::before, q::after{ content:""; } /* 인용문 앞뒤에 "" 생략하기 */
+table{ border-collapse:collapse; border-spacing:0px; }
+caption, legend, hr{ display:none; }
+textarea{ resize:none; } /* textarea쓰면 이거 꼭 써줘야함 가변하지마!*/
+fieldset,img { border:0px none; }

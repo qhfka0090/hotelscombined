@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detectoin" content="telephone=no, address=no, email=no">
+    <title> HotelsCombined </title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="main_header">
+        <h1><a href="#"></a></h1>
+        <button type="button" class="toggle_btn">
+            <span class="bar1"></span>
+            <span class="bar2"></span>
+            <span class="bar3"></span>
+            <span class="sr_only">전체메뉴</span>
+        </button>
+        <div class="gnb">
+            <ul>
+                <li><a href="#">호텔</a></li>
+                <li><a href="#">항공권</a></li>
+                <li><a href="#">렌터카</a></li>
+                <li><a href="#">이벤트&혜택</a></li>
+                <li><a href="#">둘러보기</a></li>
+                <li><a href="#">마이트립</a></li>
+                <li><a href="#">한국어</a></li>
+                <li><a href="#">대한민국 원</a></li>
+                <li><a href="#">피드백</a></li>
+            </ul>
+        </div>
+        <button class="my_content"></button>
+        <div class="my_trip">
+            <div class="myTrip_top">
+                <button type="button" class="mytrip_close"></button>
+                <a href="#">다른 여정</a>
+            </div>
+            <div class="myTrip_bottom">
+                <h3>여행 계획을 세워보세요</h3>
+                <p>항공편, 호텔을 찜해두고 언제든지 <span class="mobile_hide">마이트립에서 쉽게 확인하세요</span></p>
+                <button type="button" class="search">여행지를 검색하세요</button>
+            </div>
+        </div>
+        <button type="button" class="loginBtn">로그인</button>
+        <div class="login">
+            <h2>로그인</h2>
+            <form action="#" method="get" id="login_box">
+                <fieldset>
+                    <div class="id_box">
+                        <p>아이디</p>
+                        <input type="text" id="login_id" name="login" placeholder="아이디를 입력하세요" required>
+                    </div>
+                    <div class="password_box">
+                        <p>비밀번호</p>
+                        <input type="password" id="login_password" name="login" placeholder="비밀번호를 입력하세요" required>
+                    </div>
+                    <button type="submit">로그인</button>
+                </fieldset>
+            </form>
+            <p>회원가입 후 더 많은 혜택을 누려보세요.</p>
+            <div class="login_search">
+                <p><a href="#">회원가입</a></p>
+                <p><a href="#">아이디/비밀번호 찾기</a></p>
+            </div>
+            <button type="button" class="login_close"></button>
+        </div>
+    </header>
+    <div class="black_bg mobile_hide"></div>
+    <section id="main_content">
+        <div class="content">
+            <h2>600만개 한번에 비교 예약!</h2>
+            <div class="transportation">
+                <ul class="tabs">
+                    <li>
+                        <a href="#" class="active">호텔</a>
+                        <div class="hotel">
+                            <form action="#" method="post">
+                                <fieldset>
+                                    <input type="text" id="hotel_name" name="hotel_info" placeholder="도시, 호텔, 공항, 주소 또는 랜드마크를 입력해주세요.">
+                                    <div class="date">
+                                        <input type="date" id="date_start" name="hotel_info">
+                                        <input type="date" id="date_end" name="hotel_info">
+                                    </div>
+                                    <div class="room_box">
+                                        <button type="button" class="room">객실 1개, 투숙객 2명</button>
+                                        <div class="room_info">
+                                            <div class="room_number">
+                                                <h3>객실</h3>
+                                                <button class="minus"></button>
+                                                <p>1</p>
+                                                <button class="plus"></button>
+                                            </div>
+                                            <div class="adult">
+                                                <h3>성인</h3>
+                                                <button class="minus"></button>
+                                                <p>2</p>
+                                                <button class="plus"></button>
+                                            </div>
+                                            <div class="children">
+                                                <h3>어린이</h3>
+                                                <button class="minus"></button>
+                                                <p>0</p>
+                                                <button class="plus"></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="hotel_search">검색</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">항공권</a>
+                        <div class="airport">
+                            <form action="#" method="post">
+                                <fieldset>
+                                    <select name="airport" id="airport_select" required>
+                                        <option value="왕복" selected>왕복</option>
+                                        <option value="편도">편도</option>
+                                        <option value="다구간">다구간</option>
+                                    </select>
+                                    <div class="airport_selected">
+                                        <input type="text" placeholder="출발편을 선택하세요">
+                                        <input type="text" placeholder="도착편을 선택하세요">
+                                    </div>
+                                    <div class="airport_date">
+                                        <input type="date" id="airport_start" name="airport_info">
+                                        <input type="date" id="airport_end" name="airport_info">
+                                    </div>
+                                    <button type="submit" class="airport_search">검색</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">렌터카</a>
+                        <div class="rentcar">
+                            <form action="#" method="post">
+                                <fieldset>
+                                    <div class="car_select">
+                                        <select name="rentcar" id="rentcar_s1" required>
+                                            <option value="같은장소반납" selected>같은 장소에서 반납</option>
+                                            <option value="다른장소반납">다른 장소에서 반납</option>
+                                        </select>
+                                        <select name="rentcar" id="rentcar_s2" required>
+                                            <option value="만19세-29세" selected>운전자 나이(만) : 19세-29세</option>
+                                            <option value="만30세-39세" selected>운전자 나이(만) : 30세-39세</option>
+                                            <option value="만40세-49세" selected>운전자 나이(만) : 40세-49세</option>
+                                            <option value="만50세-59세" selected>운전자 나이(만) : 50세-59세</option>
+                                            <option value="만60세-69세" selected>운전자 나이(만) : 60세-69세</option>
+                                        </select>
+                                    </div>
+                                    <div class="rentcar_selected">
+                                        <input type="text" placeholder="출발은 어디서?">
+                                        <input type="text" placeholder="도착은 어디서?">
+                                    </div>
+                                    <div class="rentcar_date">
+                                        <input type="date" id="rentcar_start" name="rentcar_info">
+                                        <input type="date" id="rentcar_end" name="rentcar_info">
+                                    </div>
+                                    <button type="submit" class="rentcar_search">검색</button>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="exhibitions">
+        <div class="ex_container">
+            <div class="ex_top">
+                <h2>오늘의 <span>HOT</span> 기획전</h2>
+                <p><a href="#">더보기 &gt;</a></p>
+            </div>
+            <div class="ex_bottom">
+                <a href="#">
+                    <div class="ex_box">
+                        <img src="./images/hot_01.jfif" alt="후쿠오카">
+                        <div class="ex_info">
+                            <h3>후쿠오카</h3>
+                            <p>1시간 40분, 직항</p>
+                            <p>6/10 화 &gt; 6/17 화</p>
+                            <p>94,642원부터</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="ex_box">
+                        <img src="./images/hot_02.webp" alt="요나고">
+                        <div class="ex_info">
+                            <h3>요나고</h3>
+                            <p>1시간 30분, 직항</p>
+                            <p>6/16월 &gt; 6/19 목</p>
+                            <p>82,178원부터</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="ex_box">
+                        <img src="./images/hot_03.jfif" alt="사가">
+                        <div class="ex_info">
+                            <h3>사가</h3>
+                            <p>1시간 40분, 직항</p>
+                            <p>6/18 수 &gt; 6/23 월</p>
+                            <p>80,724원부터</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="ex_box">
+                        <img src="./images/hot_04.jpg" alt="제주">
+                        <div class="ex_info">
+                            <h3>제주</h3>
+                            <p>1시간 15분, 직항</p>
+                            <p>6/18 수 &gt; 6/25 수</p>
+                            <p>36,214원부터</p> 
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="domestic">
+        <div class="domestic_top">
+            <h2>국내 인기 여행지</h2>
+            <p><a href="#">더보기 &gt;</a></p>
+        </div>
+        <div class="domestic_bottom">
+            <div class="do_box">
+                <a href="#">
+                    <img src="./images/domestic_01.jpeg" alt="제주">
+                    <p>제주</p>
+                </a>
+            </div>
+            <div class="do_box">
+                <a href="#">
+                    <img src="./images/domestic_02.jpg" alt="경주">
+                    <p>경주</p>
+                </a>
+            </div>
+            <div class="do_box">
+                <a href="#">
+                    <img src="./images/domestic_03.jfif" alt="부산">
+                    <p>부산</p>
+                </a>
+            </div>
+            <div class="do_box">
+                <a href="#">
+                    <img src="./images/domestic_04.jfif" alt="강릉">
+                    <p>강릉</p>
+                </a>
+            </div>
+            <div class="do_box">
+                <a href="#">
+                    <img src="./images/domestic_05.jfif" alt="서울">
+                    <p>서울</p>
+                </a>
+            </div>
+            <div class="do_box">
+                <a href="#">
+                    <img src="./images/domestic_06.jfif" alt="인천">
+                    <p>인천</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section id="overseas">
+        <div class="over_top">
+            <h2>해외 인기 여행지</h2>
+            <p><a href="#">더보기 &gt;</a></p>
+        </div>
+        <div class="over_bottom">
+            <div class="over_box">
+                <a href="#">
+                    <img src="./images/overseas_01.jfif" alt="후쿠오카">
+                    <p>후쿠오카</p>
+                </a>
+            </div>
+            <div class="over_box">
+                <a href="#">
+                    <img src="./images/overseas_02.webp" alt="오사카">
+                    <p>오사카</p>
+                </a>
+            </div>
+            <div class="over_box">
+                <a href="#">
+                    <img src="./images/overseas_03.jpg" alt="홍콩">
+                    <p>홍콩</p>
+                </a>
+            </div>
+            <div class="over_box">
+                <a href="#">
+                    <img src="./images/overseas_04.jpg" alt="나트랑">
+                    <p>나트랑</p>
+                </a>
+            </div>
+            <div class="over_box">
+                <a href="#">
+                    <img src="./images/overseas_05.webp" alt="괌">
+                    <p>괌</p>
+                </a>
+            </div>
+            <div class="over_box">
+                <a href="#">
+                    <img src="./images/overseas_06.jpg" alt="싱가포르">
+                    <p>싱가포르</p>
+                </a>
+            </div>
+        </div>
+    </section> 
+    <section id="slide_container">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="banner">
+                        <a href="#">
+                            <img src="./images/event1.png" alt="배너1">
+                        </a>
+                    </div>
+                    <div class="banner_sub mobile_hide">
+                        <a href="#"><img src="./images/event1_01.webp" alt="UH스위트난바스테이션"></a>
+                        <a href="#"><img src="./images/event1_02.webp" alt="윙크호텔다낭센터"></a>
+                        <a href="#"><img src="./images/event1_03.webp" alt="멜리아빈펄나트랑엠파이어"></a>
+                        <a href="#"><img src="./images/event1_04.webp" alt="인터컨티넨탈푸꾸옥롱비치리조트"></a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="banner">
+                        <a href="#">
+                            <img src="./images/event2.png" alt="배너2">
+                        </a>
+                    </div>
+                    <div class="banner_sub mobile_hide">
+                        <a href="#"><img src="./images/event2_01.webp" alt="인터컨티넨탈푸꾸옥롱비치리조트"></a>
+                        <a href="#"><img src="./images/event2_02.webp" alt="인터컨티넨탈나트랑"></a>
+                        <a href="#"><img src="./images/event2_03.webp" alt="크라운플라자푸꾸옥스타베이바이IHG"></a>
+                        <a href="#"><img src="./images/event2_04.webp" alt="홀리데이인오사카난바"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="local_hotal">
+        <div class="local_info">
+            <h2>많이 찾는 숙소</h2>
+            <p>최근 한달간 구매 많은 순</p>
+            <div class="local_content">
+                <div class="local_sub">
+                    <input type="radio" id="tab1" name="hotel" val="jeju">
+                    <input type="radio" id="tab2" name="hotel" val="gangwon">
+                    <input type="radio" id="tab3" name="hotel" val="jeolla">
+                    <input type="radio" id="tab4" name="hotel" val="gyeongsang">
+                    <p class="tab_btn">
+                        <label for="tab1" class="checked">제주</label>
+                        <label for="tab2">강원</label>
+                        <label for="tab3">전라</label>
+                        <label for="tab4">경상</label>
+                    </p>
+                    <div class="tab_box">
+                        <div id="tab_sub1">
+                            <div class="frist">
+                                <a href="#">
+                                    <h2><span>1</span></h2>
+                                    <img src="./images/jeju_01.jpg" alt="제주1">
+                                    <div>
+                                        <h3>롯데 호텔 제주</h3>
+                                        <p><span>44%</span>328,800원~</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="second">
+                                <a href="#">
+                                    <h2><span>2</span></h2>
+                                    <img src="./images/jeju_02.jpg" alt="제주2">
+                                    <div>
+                                        <h3>제주신화월드<span>호텔앤리조트</span></h3>
+                                        <p><span>10%</span>79,200원~</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="third">
+                                <a href="#">
+                                    <h2><span>3</span></h2>
+                                    <img src="./images/jeju_03.jpg" alt="제주3">
+                                    <div>
+                                        <h3>제주 써니펜션</h3>
+                                        <p><span>34%</span>85,000원~</p>  
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="fourth">
+                                <a href="#">
+                                    <h2><span>4</span></h2>
+                                    <img src="./images/jeju_04.jpg" alt="제주4">
+                                    <div>
+                                    <h3>메종글래드 제주</h3>
+                                        <p><span>19%</span>325,000원~</p> 
+                                    </div>
+                                </a>
+                            </div>
+                        </div> 
+                        <div id="tab_sub2">
+                            <div class="first">
+                                <a href="#">
+                                    <h2><span>1</span></h2>
+                                    <img src="./images/gangwon_01.jpg" alt="강원1">
+                                    <div>
+                                       <h3>강릉 세인트존스 호텔</h3>
+                                        <p><span>10%</span>153,200원~</p> 
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="second">
+                                <a href="#">
+                                   <h2><span>2</span></h2>
+                                    <img src="./images/gangwon_02.jpg" alt="강원2">
+                                    <div>
+                                       <h3>오색 그린야드 호텔</h3>
+                                        <p><span>29%</span>88,800원~</p>  
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="third">
+                                <a href="#">
+                                    <h2><span>3</span></h2>
+                                    <img src="./images/gangwon_03.jpg" alt="강원3">
+                                    <div>
+                                        <h3>호텔 웨이블런트 양양</h3>
+                                        <p><span>20%</span>114,200원~</p> 
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="fourth">
+                                <a href="#">
+                                    <h2><span>4</span></h2>
+                                    <img src="./images/gangwon_04.jpg" alt="강원4">
+                                    <div>
+                                       <h3>휘닉스 리조트 평창</h3>
+                                        <p><span>15%</span>57,600원~</p> 
+                                    </div>
+                                </a>
+                            </div>
+                        </div> 
+                        <div id="tab_sub3">
+                            <div class="first">
+                                <a href="#">
+                                    <h2><span>1</span></h2>
+                                    <img src="./images/Jeolla_01.jpg" alt="전라1">
+                                    <div>
+                                       <h3>여수 라테라스 리조트</h3>
+                                        <p><span>43%</span>90,000원~</p> 
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="second">
+                                <a href="#">
+                                    <h2><span>2</span></h2>
+                                    <img src="./images/Jeolla_02.jpg" alt="전라2">
+                                    <div>
+                                      <h3>여수 케렌시아리조트</h3>
+                                        <p><span>50%</span>90,000원~</p>  
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="third">
+                                <a href="#">
+                                    <h2><span>3</span></h2>
+                                    <img src="./images/Jeolla_03.jpg" alt="전라3">
+                                    <div>
+                                       <h3>전주 호텔 더 빈센트</h3>
+                                        <p><span>52%</span>89,000원~</p> 
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="fourth">
+                                <a href="#">
+                                    <h2><span>4</span></h2>
+                                    <img src="./images/Jeolla_04.jpg" alt="전라4">
+                                    <div>
+                                        <h3>전주 한옥호텔 태조궁</h3>
+                                        <p><span>46%</span>69,000원~</p>
+                                    </div>                         
+                                </a>
+                            </div>
+                        </div> 
+                        <div id="tab_sub4">
+                            <div class="first">
+                                <a href="#">
+                                   <h2><span>1</span></h2>
+                                    <img src="./images/gyeongsang_01.jpg" alt="경상1">
+                                    <div>
+                                        <h3>샵앤플랫 호텔</h3>
+                                        <p><span>54%</span>69,000원~</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="second">
+                                <a href="#">
+                                    <h2><span>2</span></h2>
+                                    <img src="./images/gyeongsang_02.jpg" alt="경상2">
+                                    <div>
+                                       <h3>대구 JB 관광호텔</h3>
+                                        <p><span>25%</span>67,000원~</p> 
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="third">
+                                <a href="#">
+                                    <h2><span>3</span></h2>
+                                    <img src="./images/gyeongsang_03.jpg" alt="경상3">
+                                    <div>
+                                        <h3>롯데호텔앤리조트 김해</h3>
+                                        <p><span>33%</span>158,000원~</p> 
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="fourth">
+                                <a href="#">
+                                    <h2><span>4</span></h2>
+                                    <img src="./images/gyeongsang_04.jpg" alt="경상4">
+                                    <div>
+                                       <h3>거제 프래밀리 풀빌라</h3>
+                                        <p><span>18%</span>79,000원~</p> 
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="more_view mobile_only">전체보기</button>
+    </section>
+    <section id="service">
+        <div class="service_wrap">
+            <h2>프로 여행가를 위한 서비스</h2>
+            <div class="service_info">
+                <a href="#">
+                    <div class="sercvice_content">
+                        <div>
+                            <h3>둘러보기</h3>
+                            <p>예산에 맞는 여행지를 <span>알아보세요.</p>
+                        </div>
+                        <img src="./images/icon01.png" alt="아이콘1">
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="sercvice_content">
+                        <div>
+                            <h3>마이트립</h3>
+                            <p>모든 계획을 한 곳에서 <span>관리하세요.</p>
+                        </div>
+                        <img src="./images/icon02.png" alt="아이콘2">
+                    </div>
+                </a>
+                <a href="#">
+                   <div class="sercvice_content">
+                        <div>
+                        <h3>가격 알리미</h3>
+                            <p>가격 변동 시기를 <span>알아보세요.</p> 
+                        </div>
+                        <img src="./images/icon03.png" alt="아이콘3">
+                    </div>
+                </a>
+                <a href="#">
+                   <div class="sercvice_content">
+                        <div>
+                            <h3>항공편 추적기</h3>
+                            <p>실시간으로 지연을 <span>확인하세요.</p>
+                        </div>
+                        <img src="./images/icon04.png" alt="아이콘4">
+                    </div> 
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer id="main_footer">
+        <div class="footer_top">
+            <div class="compony">
+                <h3>회사정보</h3>
+                <p><a href="#">호텔스컴바인 소개</a></p>
+                <p><a href="#">사이트 작동 방식</a></p>
+                <p><a href="#">모바일</a></p>
+            </div>
+            <div class="tel">
+                <h3>연락처</h3>
+                <p><a href="#">도움말/FAQ</a></p>
+                <p><a href="#">숙박시설 관리</a></p>
+                <p><a href="#">제휴 프로그램</a></p>
+                <p><a href="#">브랜드 콜라보/제휴</a></p>
+            </div>
+            <div class="more">
+                <h3>더보기</h3>
+                <p><a href="#">위치별 호텔 검색</a></p>
+                <p><a href="#">최저가 보장</a></p>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <div class="copyright">
+                <p><a href="#">&copy;2025 호텔스컴바인</a></p>
+                <p><a href="#">개인 정보 보호 정책</a></p>
+                <p><a href="#">쿠키 정책</a></p>
+                <p><a href="#">이용 약관</a></p>
+            </div>
+            <div class="familysite">
+                <a href="#"><img src="./images/booking.png" alt="Booking"></a>
+                <a href="#"><img src="./images/kauak.png" alt="kayak"></a>
+                <a href="#"><img src="./images/opentable.png" alt="opentable"></a>
+                <a href="#"><img src="./images/priceline.png" alt="priceline"></a>
+                <a href="#"><img src="./images/agoda.png" alt="agoda"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+
+    <script src="./script/script.js"></script>
+</body>
+</html>
