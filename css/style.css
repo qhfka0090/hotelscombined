@@ -117,11 +117,11 @@ input[type=radio]{display:none;}
 }
 #main_content>.content{ padding:60px 44px; }
 #main_content>.content>h2{ 
-    font-size:1.7rem; font-weight:bold; color:#fff; letter-spacing:1.3px; 
+    font-size:1.7rem; font-weight:bold; color:#fff; letter-spacing:1.3px; max-width:800px; margin:0 auto;
     margin-bottom:50px; text-shadow:2px 2px 4px rgba(0,0,0,0.5); padding-left:20px;
 }
 #main_content>.content>.transportation{
-    width:100%; height:33vh; background:#fff; border-radius:20px; min-width:340px;
+    width:100%; max-width:800px; margin:0 auto; height:33vh; background:#fff; border-radius:20px; min-width:340px;
 }
 #main_content>.content>.transportation>ul{
     width:100%; display:flex; justify-content:space-between; align-items:center; position:relative;
@@ -171,11 +171,18 @@ input[type=radio]{display:none;}
 #main_content>.content>.transportation>ul>li>.hotel>form>fieldset>.room_box>.room_info>div>h3{
     font-size:1.1rem; font-weight:bold; margin-right:auto; 
 }
-#main_content>.content>.transportation>ul>li>.hotel>form>fieldset>.room_box>.room_info>div>button{
+#main_content>.content>.transportation>ul>li>.hotel>form>fieldset>.room_box>.room_info>div>.minus{
+    width:20px; height:20px; cursor:pointer; border:0 none; margin-right:10px; 
+    background:url("../images/minus.png")no-repeat; background-size:cover;
+}
+#main_content>.content>.transportation>ul>li>.hotel>form>fieldset>.room_box>.room_info>div>.plus{
     width:20px; height:20px; cursor:pointer; border:0 none; margin-right:10px; 
     background:url("../images/plus.png")no-repeat; background-size:cover;
 }
-#main_content>.content>.transportation>ul>li>.hotel>form>fieldset>.room_box>.room_info>div>button:hover{
+#main_content>.content>.transportation>ul>li>.hotel>form>fieldset>.room_box>.room_info>div>.minus:hover{
+    background-image:url("../images/minus2.png");
+}
+#main_content>.content>.transportation>ul>li>.hotel>form>fieldset>.room_box>.room_info>div>.plus:hover{
     background-image:url("../images/plus2.png");
 }
 #main_content>.content>.transportation>ul>li>.hotel>form>fieldset>.room_box>.room_info>div>p{
