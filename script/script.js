@@ -66,37 +66,6 @@ loginClose.addEventListener('click',()=>{
 
 /* ---------------------main content ------------------------------- */
 
-const tabli = document.querySelector('.tabs>li');
-const tabA = document.querySelector('.tabs>li>a')
-
-tabA.addEventListener('click',(event)=>{
-    event.preventDefault();
-});
-
-
-
-const room = document.querySelector('.room');
-const roomBox = document.querySelector('.room_info');
-let roomState = true;
-
-room.addEventListener('click',function(){
-    roomBox.style.transition = 'all 0.2s ease';
-    if( roomState ){
-        roomBox.style.opacity = 1;
-        roomState = false;
-    }else{
-        roomBox.style.opacity = 0;
-        roomBox.addEventListener('transitionend',()=>{roomBox.style.transition=''},{once:true});
-        roomState = true;
-    }
-});
-roomBox.addEventListener('mouseleave',function(){
-    if( !roomState ){
-        roomBox.style.opacity = 0;
-        roomBox.addEventListener('transitionend',()=>{roomBox.style.transition=''},{once:true});
-        roomState = true;
-    }
-})
 
 
 const contentBox = document.querySelectorAll('.transportation>ul>li>div');
@@ -116,6 +85,112 @@ tabs.forEach((tab,index)=>{
         nextForm.style.display = 'block';
     });
 });
+
+
+const room = document.querySelector('.room');
+const roomBox = document.querySelector('.room_info');
+let roomState = true;
+
+room.addEventListener('click',function(){
+    roomBox.style.transition = 'all 0.2s ease';
+    if( roomState ){
+        roomBox.style.opacity = 1;
+        roomState = false;
+    }else{
+        roomBox.style.opacity = 0;
+        roomBox.addEventListener('transitionend',()=>{roomBox.style.transition=''},{once:true});
+        roomState = true;
+    }
+});
+
+roomBox.addEventListener('mouseleave',function(){
+    if( !roomState ){
+        roomBox.style.opacity = 0;
+        roomBox.addEventListener('transitionend',()=>{roomBox.style.transition=''},{once:true});
+        roomState = true;
+    }
+})
+
+
+const dateRangeInput = document.querySelector('#dateRange');
+        const picker = new Litepicker({
+            element: dateRangeInput,
+            singleMode:false,
+            numberOfMonths:2,
+            numberOfColumns:2,
+            startDate:new Date(),
+            endDate: new Date(new Date().setDate(new Date().getDate() + 1)),
+            minDate:new Date(),
+            format:'YYYY-MM-DD',
+            lang:'ko-KR',
+            tooltipText:{
+                one:'박',
+                other:'박',
+            },
+            tooltipNumber:(totalDays)=>{
+                return totalDays - 1;
+            }
+        });
+
+        document.querySelector('#bookingForm').addEventListener('submit', function(e){
+            e.preventDefault();    console.log( dateRangeInput.value );
+            const dateRange = dateRangeInput.value.split(' - ');
+            const place = document.getElementById('hotel_name');
+            const checkPlace = place.value;
+            console.log( checkPlace );
+            const checkIn = dateRange[0];
+            const checkOut = dateRange[1];
+            /* const adults = document.querySelector('#adults').value;
+            const children = document.querySelector('#children').value; */
+
+            if( !checkIn || !checkOut /* || !adults */ ){
+                alert('다시 입력해주세요');
+                return;
+            }
+
+            const checkInDate = new Date(checkIn);
+            const checkOutDate = new Date(checkOut);
+            console.log( checkInDate, checkOutDate );
+
+            const nights = Math.round((checkOutDate - checkInDate) / (1000*60*60*24));
+            console.log( nights );
+
+            const result=`
+                <div id="result-box">
+                    <h2>예약완료</h2>
+                    <button id="result-btn">뒤로가기</button>
+                    <div>
+                        <p>위치 : ${checkPlace} </p>
+                        <p>입실 날짜 : ${checkIn} </p>
+                        <p>퇴실 날짜 : ${checkOut} </p>
+                        <p>숙박 기간 : ${nights}박 </p>
+                    </div>
+                    <p> 즐거운 여행 되세요! </p>
+                </div>
+            `
+                /* <p>성인 수 : ${adults}인 </p>
+                <p>미성년자 수 : ${children}인 </p> */
+            
+
+            const resultDiv= document.querySelector('#result');
+            resultDiv.innerHTML = result;
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior:'smootn'});
+            alert('예약이 완료되었습니다. 아래 예약 정보를 확인하세요');
+        })
+
+    const resultBox = document.querySelector('#result-box');
+    const resultBtn = document.querySelector('#result-btn');
+    let resultState = true;
+
+    resultBtn.addEventListener('click',function(){
+        if( resultState ){
+            resultBox.style.display = 'none';
+            resultState = false;
+        }
+    })
+
+
 
 
 /* -------------------------------- hot ----------------------------------- */
@@ -187,54 +262,13 @@ const swiper = new Swiper(".swiper", {
     speed: 1000,
     loop: true,
     autoplay: {
-      delay: 4000,
+    delay: 4000,
     },
 
-  });
+});
 
- 
 
 /* -----------------------------  local_hotal  -------------------------------------- */
-
-/* const tab1 = document.querySelector('#tab1');
-const tab2 = document.querySelector('#tab2');
-const tab3 = document.querySelector('#tab3');
-const tab4 = document.querySelector('#tab4');
-
-const tabSub1 = document.querySelector('#tab_sub1')
-const tabSub2 = document.querySelector('#tab_sub2')
-const tabSub3 = document.querySelector('#tab_sub3')
-const tabSub4 = document.querySelector('#tab_sub4')
-const tabState = true;
-
-tab1.addEventListener('click',function(){
-    if( tabState ){
-        tabSub1.style.display = 'block';
-        tabState = false;
-    }
-})
-*/
-/*
-const tab1 = document.querySelector('#tab1');
-const tab2 = document.querySelector('#tab2');
-const tab3 = document.querySelector('#tab3');
-const tab4 = document.querySelector('#tab4');
-
-const moveTab = document.querySelector('.tab_box>div');
-
-tab1.addEventListener('click',function(){
-    moveTab.style.transform = 'translateX(0%)';
-})
-tab2.addEventListener('click',function(){
-    moveTab.style.transform = 'translateX(-25%)';
-})
-tab3.addEventListener('click',function(){
-    moveTab.style.transform = 'translateX(-50%)';
-})
-tab4.addEventListener('click',function(){
-    moveTab.style.transform = 'translateX(-100%)';
-})*/
-
 
 
 const tabBox = document.querySelector('.tab_box');
@@ -292,5 +326,3 @@ gsap.fromTo('.service_info>*',
 
     }
 )
-
-
