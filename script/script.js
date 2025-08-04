@@ -179,16 +179,6 @@ const dateRangeInput = document.querySelector('#dateRange');
             alert('예약이 완료되었습니다. 아래 예약 정보를 확인하세요');
         })
 
-    const resultBox = document.querySelector('#result-box');
-    const resultBtn = document.querySelector('#result-btn');
-    let resultState = true;
-
-    resultBtn.addEventListener('click',function(){
-        if( resultState ){
-            resultBox.style.display = 'none';
-            resultState = false;
-        }
-    })
 
 
 
