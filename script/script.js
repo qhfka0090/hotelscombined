@@ -176,8 +176,14 @@ const dateRangeInput = document.querySelector('#dateRange');
             resultDiv.innerHTML = result;
             resultDiv.style.display = 'block';
             resultDiv.scrollIntoView({ behavior:'smootn'});
+            resultBtn = true;
             alert('예약이 완료되었습니다. 아래 예약 정보를 확인하세요');
+
+
+            
         })
+
+
 
 
 /* -------------------------------- hot ----------------------------------- */
@@ -253,10 +259,7 @@ const swiper = new Swiper(".swiper", {
     },
 
 });
-
-
 /* -----------------------------  local_hotal  -------------------------------------- */
-
 
 const tabBox = document.querySelector('.tab_box');
 const labelBtn = document.querySelectorAll('.tab_btn>label');
