@@ -180,9 +180,6 @@ const dateRangeInput = document.querySelector('#dateRange');
         })
 
 
-
-
-
 /* -------------------------------- hot ----------------------------------- */
 
 
